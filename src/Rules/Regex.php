@@ -14,6 +14,7 @@ namespace Guz\EasyValidate\Rules;
  * "match"=>true|false, //if match is true, the value must match the regex, if the match is false, the value must not match the value
  * ]
  * Class Regex
+ *
  * @package Guz\EasyValidate\Rules
  */
 class Regex extends Rule
@@ -27,7 +28,7 @@ class Regex extends Rule
             return false;
         }
         $match = isset($this->config["match"]) ? $this->config["match"] : true;
-        $v = preg_match($regex,$data);
+        $v = preg_match($regex, $data);
         return boolval($v) === $match;
     }
 }

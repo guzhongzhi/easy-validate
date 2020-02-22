@@ -1,9 +1,11 @@
 <?php
 namespace Guz\EasyValidate\Rules;
 
-class Required extends Rule {
+class Required extends Rule
+{
     
-    protected function _validate() {
+    protected function _validate()
+    {
         $fieldName = $this->fieldName;
         $data = $this->data;
         $condition = $this->config;
@@ -13,10 +15,11 @@ class Required extends Rule {
         }
     }
     
-    protected function getErrorMessage() {
+    protected function getErrorMessage()
+    {
         if(isset($this->config["message"]) && $this->config["message"]) {
-            return sprintf($this->config["message"],$this->label);
+            return sprintf($this->config["message"], $this->label);
         }
-        return sprintf("%s is required",$this->label);
+        return sprintf("%s is required", $this->label);
     }
 }

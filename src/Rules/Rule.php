@@ -1,7 +1,8 @@
 <?php
 namespace Guz\EasyValidate\Rules;
 
-abstract class Rule {
+abstract class Rule
+{
     /**
      * @var array
      */
@@ -26,11 +27,13 @@ abstract class Rule {
     
     /**
      * Rule constructor.
-     * @param string $fieldName
-     * @param array $config
+     *
+     * @param string       $fieldName
+     * @param array        $config
      * @param array|object $data
      */
-    public function __construct($fieldName, $config, $data) {
+    public function __construct($fieldName, $config, $data)
+    {
         if (!isset($config["message"])) {
             $config["message"] = "";
         }
@@ -42,10 +45,11 @@ abstract class Rule {
     }
     
     /**
-     * @param string $v
+     * @param  string $v
      * @return $this
      */
-    public function setLabel($v) {
+    public function setLabel($v)
+    {
         $this->label = $v;
         return $this;
     }
@@ -53,7 +57,8 @@ abstract class Rule {
     /**
      * @return array
      */
-    public function getErrors() {
+    public function getErrors()
+    {
         return $this->errors;
     }
     
@@ -61,10 +66,11 @@ abstract class Rule {
      * @return bool
      * @throws \Exception
      */
-    public final function validate() {
+    public final function validate()
+    {
         $this->errors = [];
         $this->_validate();
-        if(count($this->errors)){ 
+        if(count($this->errors)) { 
             return false;
         }
         return true;
@@ -73,30 +79,33 @@ abstract class Rule {
     /**
      * @return mixed|string
      */
-    protected function getErrorMessage() {
+    protected function getErrorMessage()
+    {
         if(isset($this->config["message"]) && $this->config["message"]) {
             return $this->config["message"];
         }
-        return sprintf("%s validate failed",$this->label);
+        return sprintf("%s validate failed", $this->label);
     }
     
     /**
-     * @param string $message
+     * @param  string $message
      * @return \Exception
      */
-    protected function generateError($message = "") {
+    protected function generateError($message = "")
+    {
         if($message == "") {
             $message = $this->getErrorMessage();
         }
         
         $code = isset($this->config["code"]) ? $this->config["code"] : 0;
-        return new \Exception($message,$code);
+        return new \Exception($message, $code);
     }
     
     /**
      * @throws \Exception
      */
-    protected function _validate() {
+    protected function _validate()
+    {
         throw new \Exception("Not implemented");
     }
 }

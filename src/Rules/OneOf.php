@@ -6,11 +6,14 @@ namespace Guz\EasyValidate\Rules;
  * data=>[1,2,3]
  * ]
  * Class OneOf
+ *
  * @package Guz\EasyValidate\Rules
  */
-class OneOf extends Rule {
+class OneOf extends Rule
+{
     
-    protected function _validate() {
+    protected function _validate()
+    {
         $data = $this->data;
         $fieldName = $this->fieldName;
         
@@ -29,7 +32,8 @@ class OneOf extends Rule {
     /**
      * @return array
      */
-    protected function getAllowedValues() {
+    protected function getAllowedValues()
+    {
         $condition = $this->condition;
         $values = isset($condition["data"]) ? $condition["data"] : [];
         
@@ -42,10 +46,11 @@ class OneOf extends Rule {
     /**
      * @return string
      */
-    protected function getErrorMessage() {
+    protected function getErrorMessage()
+    {
         if(isset($this->config["message"]) && $this->config["message"]) {
-            return sprintf($this->config["message"],$this->label);
+            return sprintf($this->config["message"], $this->label);
         }
-        return sprintf("%s is not one of '%s'",$this->label, implode(",", $this->getAllowedValues()));
+        return sprintf("%s is not one of '%s'", $this->label, implode(",", $this->getAllowedValues()));
     }
 }

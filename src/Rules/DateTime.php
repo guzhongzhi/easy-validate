@@ -13,6 +13,7 @@ namespace Guz\EasyValidate\Rules;
  * format=>"",
  * ]
  * Class DateTime
+ *
  * @package Guz\EasyValidate\Rules
  */
 class DateTime extends Rule

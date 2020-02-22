@@ -13,6 +13,7 @@ namespace Guz\EasyValidate\Rules;
  * targetFieldName=>""
  * ]
  * Class Equal
+ *
  * @package Guz\EasyValidate\Rules
  */
 class Equal extends Rule

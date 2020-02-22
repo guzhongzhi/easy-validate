@@ -17,6 +17,7 @@ namespace Guz\EasyValidate\Rules;
  * decimal=>2,  小数位数,
  * ]
  * Class Number
+ *
  * @package Guz\EasyValidate\Rules
  */
 class Number extends Rule

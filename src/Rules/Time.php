@@ -13,6 +13,7 @@ namespace Guz\EasyValidate\Rules;
  * format=>""
  * ]
  * Class Time
+ *
  * @package Guz\EasyValidate\Rules
  */
 class Time extends Rule

@@ -14,6 +14,7 @@ namespace Guz\EasyValidate\Rules;
  * max=>10,
  * ]
  * Class Length
+ *
  * @package Guz\EasyValidate\Rules
  */
 class Length extends Rule

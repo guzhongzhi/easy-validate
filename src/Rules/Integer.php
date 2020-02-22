@@ -10,6 +10,7 @@ namespace Guz\EasyValidate\Rules;
 
 /**
  * Class Integer
+ *
  * @package Guz\EasyValidate\Rules
  */
 class Integer extends Rule

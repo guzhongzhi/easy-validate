@@ -1,7 +1,8 @@
 <?php
 namespace Guz\EasyValidate;
 
-class Validate {
+class Validate
+{
     const RULE_DEFAULT = "required";
     
     /**
@@ -10,10 +11,11 @@ class Validate {
     protected $errors = [];
     
     /**
-     * @param $conditions
+     * @param  $conditions
      * @return array
      */
-    protected function formatConditons($conditions) {
+    protected function formatConditons($conditions)
+    {
         if (!is_array($conditions)) {
             $conditions = [
                 [
@@ -28,11 +30,13 @@ class Validate {
     /**
      * @return array
      */
-    public function getErrors() {
+    public function getErrors()
+    {
         return $this->errors;
     }
     
-    public function validate($source,$rules) {
+    public function validate($source,$rules)
+    {
         $this->errors = [];
         foreach ($rules as $fieldName => $conditions) {
             $data = $source;
@@ -60,12 +64,13 @@ class Validate {
                 continue;
             }
             $conditions = $this->formatConditons($conditions);
-            $this->validateField($fieldName,$conditions, $data);
+            $this->validateField($fieldName, $conditions, $data);
         }
         return count($this->errors) == 0 ;
     }
     
-    protected function validateField($fieldName,$conditions,$data) {
+    protected function validateField($fieldName,$conditions,$data)
+    {
         $label = $fieldName;
         if(isset($conditions["label"])) {
             $label = $conditions["label"];
@@ -88,7 +93,7 @@ class Validate {
                     break;
                 }
             }catch(\Exception $ex) {
-                $this->errors[$fieldName] = array_merge($rule->getErrors(),$ex);
+                $this->errors[$fieldName] = array_merge($rule->getErrors(), $ex);
                 break;
             }
         }
