@@ -24,10 +24,10 @@ $rules = [
         "label"=>"Username",
         "rules"=>[
             [
-                "type"=>"required",
+                "rule"=>"required",
             ],
             [
-                "type"=>"length",
+                "rule"=>"length",
                 "min"=> 6,
                 "max"=> 15,
             ]

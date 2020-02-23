@@ -16,7 +16,7 @@ class Validate
     protected $errors = [];
     
     /**
-     * @var array 
+     * @var array
      */
     protected $data = [];
     
