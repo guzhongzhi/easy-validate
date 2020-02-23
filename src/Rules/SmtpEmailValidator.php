@@ -12,6 +12,8 @@ use SMTPValidateEmail\Validator as EmailValidator;
 
 class SmtpEmailValidator extends Rule
 {
+    const CODE = "smtpEmailValidator";
+    
     protected function _validate()
     {
         $email = isset($this->data[$this->fieldName]) ? $this->data[$this->fieldName] : "";

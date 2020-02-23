@@ -16,7 +16,7 @@ namespace Guz\EasyValidate\Rules;
  *
  * @package Guz\EasyValidate\Rules
  */
-class DateTime extends Rule
+class DateTime extends Date
 {
-    
+    const CODE = "dateTime";
 }

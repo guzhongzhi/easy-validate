@@ -19,5 +19,5 @@ namespace Guz\EasyValidate\Rules;
  */
 class Length extends Rule
 {
-    
+    const CODE = "length";
 }

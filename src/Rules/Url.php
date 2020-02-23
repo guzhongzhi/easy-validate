@@ -9,7 +9,15 @@
 namespace Guz\EasyValidate\Rules;
 
 
-class Url
+class Url extends Rule
 {
+    const CODE = "url";
     
+    protected function _validate()
+    {
+        $value = $this->getValue();
+        if(filter_var($value, FILTER_VALIDATE_URL) === false) {
+            $this->generateError();
+        }
+    }
 }

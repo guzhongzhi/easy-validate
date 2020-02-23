@@ -22,5 +22,46 @@ namespace Guz\EasyValidate\Rules;
  */
 class Number extends Rule
 {
+    const CODE = "number";
     
+    protected function _validate()
+    {
+        $value = $this->getValue();
+        if(isset($this->config["min"])) {
+            $min = $this->config["min"];
+            $includeMin = isset($this->config["includeMin"]) ? $this->config["includeMin"] : false;
+            $res = true;
+            if($includeMin) {
+                $res = $value >= $min;
+            } else {
+                $res = $value > $min;
+            }
+            if(!$res) {
+                $this->generateError(sprintf("%s must greater than %s",$this->label,$min));
+                return;
+            }
+        }
+        if(isset($this->config["max"])) {
+            $max = $this->config["max"];
+            $includeMax = isset($this->config["includeMax"]) ? $this->config["includeMax"] : false;
+            $res = true;
+            if($includeMax) {
+                $res = $value <= $max;
+            } else {
+                $res = $value < $max;
+            }
+            if(!$res) {
+                $this->generateError();
+                return;
+            }
+        }
+        $decimal = isset($this->config["decimal"]) ? $this->config["decimal"] : null;
+        if($decimal === null) {
+            return;
+        }
+        $regex = '/\.[0-9]{'.$decimal.'}$/is';
+        if(preg_match($regex,$value) === false) {
+            $this->generateError();
+        }
+    }
 }

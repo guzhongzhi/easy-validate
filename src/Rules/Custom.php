@@ -19,6 +19,8 @@ namespace Guz\EasyValidate\Rules;
  */
 class Custom extends Rule
 {
+    const CODE = "custom";
+    
     protected function _validate()
     {
         $callback = isset($this->config["callback"]) ? $this->config["callback"] : null;

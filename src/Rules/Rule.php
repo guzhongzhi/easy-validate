@@ -44,6 +44,13 @@ abstract class Rule
         $this->label = $fieldName;
     }
     
+    protected function getValue($fieldName = "") {
+        if($fieldName == "") {
+            $fieldName = $this->fieldName;
+        }
+        return isset($this->data[$fieldName]) ? $this->data[$fieldName] : null;
+    }
+    
     /**
      * @param  string $v
      * @return $this

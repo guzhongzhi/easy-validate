@@ -1,6 +1,10 @@
 <?php
 namespace Guz\EasyValidate;
 
+/**
+ * Class Validate
+ * @package Guz\EasyValidate
+ */
 class Validate
 {
     const RULE_DEFAULT = "required";
@@ -14,7 +18,7 @@ class Validate
      * @param  $conditions
      * @return array
      */
-    protected function formatConditons($conditions)
+    protected function formatConditions($conditions)
     {
         if (!is_array($conditions)) {
             $conditions = [
@@ -35,6 +39,11 @@ class Validate
         return $this->errors;
     }
     
+    /**
+     * @param $source
+     * @param $rules
+     * @return bool
+     */
     public function validate($source,$rules)
     {
         $this->errors = [];
@@ -63,12 +72,17 @@ class Validate
             if ($isValidated) {
                 continue;
             }
-            $conditions = $this->formatConditons($conditions);
+            $conditions = $this->formatConditions($conditions);
             $this->validateField($fieldName, $conditions, $data);
         }
         return count($this->errors) == 0 ;
     }
     
+    /**
+     * @param $fieldName
+     * @param $conditions
+     * @param $data
+     */
     protected function validateField($fieldName,$conditions,$data)
     {
         $label = $fieldName;

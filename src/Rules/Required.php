@@ -3,6 +3,7 @@ namespace Guz\EasyValidate\Rules;
 
 class Required extends Rule
 {
+    const CODE = "required";
     
     protected function _validate()
     {

@@ -19,6 +19,8 @@ namespace Guz\EasyValidate\Rules;
  */
 class Regex extends Rule
 {
+    const CODE = "regex";
+    
     protected function _validate()
     {
         $data = isset($this->data[$this->fieldName]) ? $this->data[$this->fieldName] : "";

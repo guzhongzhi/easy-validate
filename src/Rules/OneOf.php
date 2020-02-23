@@ -11,6 +11,7 @@ namespace Guz\EasyValidate\Rules;
  */
 class OneOf extends Rule
 {
+    const CODE = "oneOf";
     
     protected function _validate()
     {

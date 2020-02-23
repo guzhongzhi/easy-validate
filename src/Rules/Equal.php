@@ -18,5 +18,16 @@ namespace Guz\EasyValidate\Rules;
  */
 class Equal extends Rule
 {
+    const CODE = "equal";
+    
+    protected function _validate()
+    {
+        $value = $this->getValue();
+        $targetField = isset($this->config["targetFieldName"]) ? $this->config["targetFieldName"] :"";
+        $value2 = $this->getValue($targetField);
+        if($value != $value2) {
+            $this->generateError();
+        }
+    }
     
 }

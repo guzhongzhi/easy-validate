@@ -11,5 +11,5 @@ namespace Guz\EasyValidate\Rules;
 
 class Json extends Rule
 {
-    
+    const CODE = "json";
 }

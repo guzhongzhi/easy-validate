@@ -9,6 +9,7 @@
 namespace Guz\EasyValidate\Rules;
 
 /**
+ * based on php strptime
  * [
  * format=>"",
  * ]
@@ -18,5 +19,15 @@ namespace Guz\EasyValidate\Rules;
  */
 class Date extends Rule
 {
+    const CODE = "date";
     
+    protected function _validate()
+    {
+        $value = $this->getValue();
+        $format = $this->config["format"];
+        $strf = strptime ( $value, $format );
+        if($strf === false) {
+            $this->generateError();
+        }
+    }
 }

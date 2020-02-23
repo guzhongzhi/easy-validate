@@ -11,5 +11,14 @@ namespace Guz\EasyValidate\Rules;
 
 class NoWhitespace extends Rule
 {
+    const CODE = "noWhitespace";
     
+    protected function _validate()
+    {
+        $value = $this->getValue();
+        $regex = '/\s+/is';
+        if(preg_match($regex,$value) === false) {
+            $this->generateError();
+        }
+    }
 }

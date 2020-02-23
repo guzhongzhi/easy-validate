@@ -9,7 +9,13 @@
 namespace Guz\EasyValidate\Rules;
 
 
-class Boolean extends Rule
+class Boolean extends OneOf
 {
+    const CODE = "boolean";
     
+    protected function _validate()
+    {
+        $this->config["data"] = [true,false];
+        return parent::_validate();
+    }
 }

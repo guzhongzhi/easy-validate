@@ -16,7 +16,8 @@ namespace Guz\EasyValidate\Rules;
  *
  * @package Guz\EasyValidate\Rules
  */
-class Time extends Rule
+class Time extends Date
 {
+    const CODE = "time";
     
 }
