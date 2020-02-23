@@ -17,7 +17,7 @@ class Url extends Rule
     {
         $value = $this->getValue();
         if(filter_var($value, FILTER_VALIDATE_URL) === false) {
-            $this->generateError();
+            $this->errors[] = $this->generateError();
         }
     }
 }

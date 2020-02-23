@@ -16,6 +16,7 @@ namespace Guz\EasyValidate\Rules;
  * max=>
  *
  * ]
+ *
  * @package Guz\EasyValidate\Rules
  */
 class Integer extends Number
@@ -26,7 +27,7 @@ class Integer extends Number
     {
         $value = $this->getValue();
         if(!is_int($value)) {
-            $this->generateError();
+            $this->errors[] = $this->generateError();
             return;
         }
         parent::_validate();

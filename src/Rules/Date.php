@@ -25,9 +25,9 @@ class Date extends Rule
     {
         $value = $this->getValue();
         $format = $this->config["format"];
-        $strf = strptime ( $value, $format );
+        $strf = strptime($value, $format);
         if($strf === false) {
-            $this->generateError();
+            $this->errors[] = $this->generateError();
         }
     }
 }

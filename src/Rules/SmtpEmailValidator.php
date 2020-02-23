@@ -21,8 +21,7 @@ class SmtpEmailValidator extends Rule
         $validator = new EmailValidator($email, $sender);
 
         $results   = $validator->validate();
-    
-        if(isset($results[$email]) && $results[$email]) {
+        if(isset($results[$email]) && $results[$email] == true) {
             return true;
         }
         $this->errors[] = $this->getErrorMessage();

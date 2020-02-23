@@ -26,7 +26,7 @@ class Equal extends Rule
         $targetField = isset($this->config["targetFieldName"]) ? $this->config["targetFieldName"] :"";
         $value2 = $this->getValue($targetField);
         if($value != $value2) {
-            $this->generateError();
+            $this->errors[] = $this->generateError();
         }
     }
     

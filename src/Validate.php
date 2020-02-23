@@ -3,6 +3,7 @@ namespace Guz\EasyValidate;
 
 /**
  * Class Validate
+ *
  * @package Guz\EasyValidate
  */
 class Validate
@@ -40,8 +41,8 @@ class Validate
     }
     
     /**
-     * @param $source
-     * @param $rules
+     * @param  $source
+     * @param  $rules
      * @return bool
      */
     public function validate($source,$rules)
@@ -98,7 +99,7 @@ class Validate
             if (!isset($condition["rule"])) {
                 $condition["rule"] = self::RULE_DEFAULT;
             }
-            $className = "Rules\\".ucfirst($condition["rule"]);
+            $className = __NAMESPACE__ . "\\Rules\\".ucfirst($condition["rule"]);
             $rule = new $className($fieldName, $condition, $data);
             $rule->setLabel($label);
             try {

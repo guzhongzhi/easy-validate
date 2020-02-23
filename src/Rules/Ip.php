@@ -17,7 +17,8 @@ class Ip extends Rule
     {
         $value = $this->getValue();
         if(filter_var($value, FILTER_VALIDATE_IP) === false) {
-            $this->generateError();
+            $this->errors[] = $this->generateError();
         }
+        return true;
     }
 }

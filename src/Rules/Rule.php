@@ -44,7 +44,8 @@ abstract class Rule
         $this->label = $fieldName;
     }
     
-    protected function getValue($fieldName = "") {
+    protected function getValue($fieldName = "")
+    {
         if($fieldName == "") {
             $fieldName = $this->fieldName;
         }

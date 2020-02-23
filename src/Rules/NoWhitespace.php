@@ -17,8 +17,8 @@ class NoWhitespace extends Rule
     {
         $value = $this->getValue();
         $regex = '/\s+/is';
-        if(preg_match($regex,$value) === false) {
-            $this->generateError();
+        if(preg_match($regex, $value) === false) {
+            $this->errors[] = $this->generateError();
         }
     }
 }

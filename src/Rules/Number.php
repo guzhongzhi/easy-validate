@@ -37,7 +37,7 @@ class Number extends Rule
                 $res = $value > $min;
             }
             if(!$res) {
-                $this->generateError(sprintf("%s must greater than %s",$this->label,$min));
+                $this->errors[] = $this->generateError(sprintf("%s must greater than %s", $this->label, $min));
                 return;
             }
         }
@@ -51,7 +51,7 @@ class Number extends Rule
                 $res = $value < $max;
             }
             if(!$res) {
-                $this->generateError();
+                $this->errors[] = $this->generateError();
                 return;
             }
         }
@@ -60,8 +60,8 @@ class Number extends Rule
             return;
         }
         $regex = '/\.[0-9]{'.$decimal.'}$/is';
-        if(preg_match($regex,$value) === false) {
-            $this->generateError();
+        if(preg_match($regex, $value) === false) {
+            $this->errors[] = $this->generateError();
         }
     }
 }

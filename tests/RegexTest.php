@@ -9,9 +9,7 @@
 namespace Guz\EasyValidate\Tests;
 
 
-require_once 'vendor/autoload.php';
-
-class RegexTest extends \PHPUnit_Framework_TestCase
+class RegexTest extends Tester
 {
     function testRegexMatch()
     {
@@ -38,6 +36,6 @@ class RegexTest extends \PHPUnit_Framework_TestCase
             "match"=>false,
         ];
         $regex = new \Guz\EasyValidate\Rules\Regex($fieldName, $config, $data);
-        $this->assertTrue($regex->validate());
+        $this->assertTrue($regex->validate($data,$config));
     }
 }
