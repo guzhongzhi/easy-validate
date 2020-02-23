@@ -16,6 +16,27 @@ class Validate
     protected $errors = [];
     
     /**
+     * @var array 
+     */
+    protected $data = [];
+    
+    /**
+     * @var array
+     */
+    protected $rules = [];
+    
+    /**
+     * Validate constructor.
+     * @param array $data
+     * @param array $rules
+     */
+    public function __construct($data = [], $rules = [])
+    {
+        $this->data = $data;
+        $this->rules = $rules;
+    }
+    
+    /**
      * @param  $conditions
      * @return array
      */
@@ -45,8 +66,14 @@ class Validate
      * @param  $rules
      * @return bool
      */
-    public function validate($source,$rules)
+    public function validate($source = [],$rules = [])
     {
+        if(!empty($source)) {
+            $source = $this->data;
+        }
+        if(empty($rules)) {
+            $rules = $this->rules;
+        }
         $this->errors = [];
         foreach ($rules as $fieldName => $conditions) {
             $data = $source;
